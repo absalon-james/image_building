@@ -12,6 +12,8 @@ TRIPLEO_IMAGE_ELEMENTS_BRANCH=${TRIPLEO_IMAGE_ELEMENTS_BRANCH:-master}
 # Trusty for 14.04
 RELEASE=${RELEASE:-precise}
 
+IMAGE_DIR=${IMAGE_DIR:-images}
+
 function clone_and_update {
     set -x
     if [ ! -d "$2" ]; then
@@ -53,4 +55,4 @@ diskimage-builder/bin/disk-image-create vm \
   os-apply-config \
   heat-config-cfn-init \
   heat-config-script \
- -o images/ubuntu-${DIB_RELEASE}-heat-elements.qcow2
+ -o ${IMAGE_DIR}/ubuntu-${DIB_RELEASE}-heat-elements.qcow2
